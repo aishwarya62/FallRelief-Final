@@ -223,14 +223,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\5-most-common-balance-problems-seniors-experience.jpg" />
-    <Content Include="Content\about.jpg" />
     <Content Include="Content\aerobics.jpg" />
     <Content Include="Content\aerobics_edited.jpg" />
     <Content Include="Content\alcohol.jpg" />
     <Content Include="Content\animate.css" />
+    <Content Include="Content\animate.min.css" />
     <Content Include="Content\aos.css" />
     <Content Include="Content\assessment.css" />
-    <Content Include="Content\bg_1.jpg" />
     <Content Include="Content\bootstrap-datepicker.css" />
     <Content Include="Content\bootstrap-grid.css" />
     <Content Include="Content\bootstrap-reboot.css" />
@@ -238,6 +237,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\bootstrap1.min.css" />
     <Content Include="Content\breakfast.jpg" />
     <Content Include="Content\clutter.jpg" />
     <Content Include="Content\clutter_edited.jpg" />
@@ -255,11 +255,12 @@
     <Content Include="Content\favicon_92.png" />
     <Content Include="Content\favicon_96.png" />
     <Content Include="Content\flaticon.css" />
+    <Content Include="Content\fontawesome-all.min.css" />
     <Content Include="Content\footwear.jpg" />
     <Content Include="Content\footwear_edited.jpg" />
     <Content Include="Content\fruitsveggies.jpg" />
     <Content Include="Content\gardening.jpg" />
-    <Content Include="Content\gardening_edited.jpg" />
+    <Content Include="Content\gardening_edited_2.jpg" />
     <Content Include="Content\handrail.jpg" />
     <Content Include="Content\handrail_edited.jpg" />
     <Content Include="Content\health assessment.jpg" />
@@ -322,9 +323,12 @@
     <Content Include="Content\lights_edited.jpg" />
     <Content Include="Content\logo.jpeg" />
     <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\magnific1-popup.css" />
     <Content Include="Content\New Project.ico" />
+    <Content Include="Content\nice-select.css" />
     <Content Include="Content\open-iconic-bootstrap.min.css" />
     <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\owl.carousel1.min.css" />
     <Content Include="Content\owl.theme.default.min.css" />
     <Content Include="Content\pilates.jpg" />
     <Content Include="Content\pilates_edited.jpg" />
@@ -337,12 +341,17 @@
     <Content Include="Content\scrolltotop_128.png" />
     <Content Include="Content\scroll_up_512.png" />
     <Content Include="Content\scroll_up_96.png" />
+    <Content Include="Content\slick.css" />
+    <Content Include="Content\slicknav.css" />
     <Content Include="Content\smoking.jpg" />
-    <Content Include="Content\spills.jpg" />
+    <Content Include="Content\spills_edited.jpg" />
     <Content Include="Content\style.css" />
+    <Content Include="Content\style1.css" />
     <Content Include="Content\supplements.jpg" />
     <Content Include="Content\taichi.jpg" />
     <Content Include="Content\taichi_edited.jpg" />
+    <Content Include="Content\technology.png" />
+    <Content Include="Content\themify-icons.css" />
     <Content Include="Content\walking.jpg" />
     <Content Include="Content\walking_edited.jpg" />
     <Content Include="Content\water.jpg" />
@@ -366,6 +375,7 @@
       <DependentUpon>RiskAssessmentModel.edmx</DependentUpon>
       <LastGenOutput>RiskAssessmentModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\animated.headline.js" />
     <Content Include="Scripts\aos.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -395,7 +405,12 @@
     <None Include="Properties\PublishProfiles\fallrelief - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\fallrelief - Web Deploy1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\bootstrap.min1.js" />
+    <Content Include="Scripts\contact.js" />
+    <Content Include="Scripts\flaticon1.css" />
+    <Content Include="Scripts\gijgo.min.js" />
     <Content Include="Scripts\google-map.js" />
+    <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -403,23 +418,43 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-migrate-3.0.1.min.js" />
+    <Content Include="Scripts\jquery.ajaxchimp.min.js" />
     <Content Include="Scripts\jquery.animateNumber.min.js" />
+    <Content Include="Scripts\jquery.counterup.min.js" />
     <Content Include="Scripts\jquery.easing.1.3.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.magnific-popup.js" />
     <Content Include="Scripts\jquery.magnific-popup.min.js" />
     <Content Include="Scripts\jquery.min.js" />
+    <Content Include="Scripts\jquery.nice-select.min.js" />
+    <Content Include="Scripts\jquery.paroller.min.js" />
+    <Content Include="Scripts\jquery.scrollUp.min.js" />
+    <Content Include="Scripts\jquery.slicknav.min.js" />
     <Content Include="Scripts\jquery.stellar.min.js" />
+    <Content Include="Scripts\jquery.sticky.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\jquery.validate1.min.js" />
     <Content Include="Scripts\jquery.waypoints.min.js" />
+    <Content Include="Scripts\mail-script.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\main1.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\modernizr-3.5.0.min.js" />
+    <Content Include="Scripts\one-page-nav-min.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\owl.carousel1.min.js" />
+    <Content Include="Scripts\plugins.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\popper.min1.js" />
     <Content Include="Scripts\progressbar.js" />
     <Content Include="Scripts\scrollax.min.js" />
     <Content Include="Scripts\scrolltotop.js" />
+    <Content Include="Scripts\slick.min.js" />
+    <Content Include="Scripts\waypoints1.min.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -445,6 +480,7 @@
     <Content Include="Views\Home\LowLevel.cshtml" />
     <Content Include="Views\Home\Helplines.cshtml" />
     <Content Include="Views\Home\LowLevelHome.cshtml" />
+    <Content Include="Views\Home\test.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

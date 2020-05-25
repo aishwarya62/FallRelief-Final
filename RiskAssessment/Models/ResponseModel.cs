@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -15,6 +16,7 @@ namespace RiskAssessment.Models
     public class QASectionModel
     {
         public int AssessmentTypeID { get; set; }
+        [Required]
         public int SectionID { get; set; }
         public Guid SessionID { get; set; }
         public string Direction { get; set; }

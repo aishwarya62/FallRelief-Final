@@ -1,5 +1,4 @@
-﻿
-
+﻿<!--if risk level is low for home safety assessment-->
 @model  RiskAssessment.Models.RiskLevelModel
 <!DOCTYPE html>
 <html>
@@ -35,6 +34,17 @@
 
 
     <style>
+        .scrollelement {
+            position: fixed;
+            bottom: 25px;
+            right: -15px;
+            transition: 0.5s;
+        }
+
+            .scrollelement:hover {
+                opacity: 0.7;
+                transform: 0.5s;
+            }
         .button {
             background-color: #4473c4;
             border: none;
@@ -47,78 +57,96 @@
             margin: 4px 2px;
             cursor: pointer;
             border-radius: 12px;
+            opacity: 1;
         }
     </style>
 </head>
 <body>
-    <header>
 
-
+    <nav class="navbar px-md-0 navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
         <div class="container">
-            <div class="ftco-animate">
-                <a href="/Home/Index">
-                    <img src="~/Content/Fall_Relief_edited_new.png" style="width:20%; height:20%; left:50em" />
-                </a>
+            <a href="/Home/Index" style="width:200px">
+                <img src="~/Content/Fall_Relief_edited_new.png" style="width:100%; left:50em" />
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="oi oi-menu"></span> Menu
+            </button>
 
-                <div id='cssmenu'>
-                    <ul>
-                        <li><a href="/Home/Index" class="nav-link">Home</a></li>
-                        <li><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
-                        <li><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
-                        <li><a href="/Home/Helplines" class="nav-link">Helplines</a></li>
-                        <li><a href="/Home/About" class="nav-link">About</a></li>
-                    </ul>
-                </div>
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a href="/Home/Index" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="/Home/Assessment" class="nav-link">Assessment</a></li>
+                    <li class="nav-item"><a href="/Home/Tips" class="nav-link">Health Tips</a></li>
+                    <li class="nav-item"><a href="/Home/Helplines" class="nav-link">Helplines</a></li>
+                    <li class="nav-item"><a href="/Home/About" class="nav-link">About</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
+    <div style="max-width:100%;background-color: #F5F5F5">
+        <div class="container" style="padding-left:10px;padding-right:0px;margin-bottom:150px">
+            <div class="col-md-12" style="padding-left:0px">
 
+                <div class="col-md-6" style="margin-top:20px">
+                    <h1 style="color:#4473c4;font-size:25px;font-weight:bold">Assessment Result</h1>
+                    <h2 style="font-weight:bold;color:green">@ViewBag.RiskLevel Low Risk Level</h2>
 
-
-    </header>
-
-
-
-
-    <div class="container col-md-12">
-        <div class="row" style="background-color:#F5F5F5;padding-left:124px;margin-top:20px">
-            <div class="col-md-5" style="margin-top:20px;margin-bottom:20px">
-                <div>
-                    <h1 style="color:#4473c4;font-size:30px">Assessment Result</h1>
-                    <h2>@ViewBag.RiskLevel</h2>
                     <p style="color:black;font-size:18px">
 
-                        Good news, based on your assessment Your answers suggest that you at @ViewBag.RiskLevel level for falls.
-                    </p><p style="color:black;font-size:20px">
+                        Good news, based on your assessment Your answers suggest that you are at a <strong style="color:green">Low</strong>  level for falls.
+                    </p><p style="color:black;font-size:18px">
 
-                        However that does not mean you are immune to falling. You can check out our other assessment or view our general recommendation health tips to prevent fallings using the button on the right.
+                        However that does not mean you are immune to falling.
+                    </p>
+                    <p style="color:black;font-size:18px">
+                        You can check out the other assessment or view our general recommendation health tips to prevent fallings using the button on the right.
 
                     </p>
+
                 </div>
-            </div>
-            <div class="col-md-5" style="padding-left:30px;padding-right:100px">
-                <div class="card" style="  padding:36px;
-  margin-top:70px;border:none;
-  background-color: #277695;opacity:0.7;margin-bottom:130px">
-                    <div class="card-body">
-                        <h1 class="card-title" style="font-size:20px;color:white">Health Assessment</h1>
-                        <p class="card-text" style="color:white">
+
+                <div class="col-md-5" style="border-left-style:solid;border-left-color:#4473c4;border-width:10px;padding-left:0px;margin:30px 0px 30px 50px">
+                    <div class="col-md-10" style="padding-left:10px;max-width:100%;background-color:#277395;padding-top:15px;opacity:0.8">
+
+                        <h1 style="font-weight:bold;font-size:23px;color:white;margin-bottom:0">
+                            Health Assessment
+                        </h1>
+                        <p style="margin:0;color:white;font-size:18px">
                             To find out if your senior’s health is at high risks for falling, by taking the health assessment using the button below
 
+                        <p>
+
+
+                            <a href="@Url.Action("Instruction","Home",new
+            {
+                @SessionModel = Session["SessionID"],
+                @number = 1
+            })" class="button">Click Here</a>
                         </p>
-                        <a href="@Url.Action("Instruction","Home",new
-    {
-        @SessionModel = Session["SessionID"],
-        @number = 1
-    })" class="button">Click Here</a>
                     </div>
 
                 </div>
-                <!--<a href="/Home/AssessmentResult" class="btn btn-primary" style="padding:4px 30px 4px 30px;margin: 10px 5px">Previous</a>-->
+                <div class="col-md-5" style="border-left-style:solid;border-left-color:#4473c4;border-width:10px;padding-left:0px;margin:30px 0px 30px 50px">
+                    <div class="col-md-10" style="padding-left:10px;max-width:100%;padding-bottom:20px;background-color:#277395;padding-top:15px;opacity:0.8">
+                        <h1 style="font-weight:bold;font-size:23px;color:white;margin-bottom:0">
+                            General Tips
+                        </h1>
+                        <a href="/Home/Tips" class="button">Click Here</a>
+                    </div>
+
+                </div>
 
             </div>
         </div>
     </div>
+
+
+
+    <!--<a href="/Home/AssessmentResult" class="btn btn-primary" style="padding:4px 30px 4px 30px;margin: 10px 5px">Previous</a>-->
+
+
+
 
 
     <footer class="ftco-footer ftco-bg-light" style="border-top:3px; border-top-color:#000000">
@@ -137,9 +165,7 @@
                             </p>
                         </div>
                     </div>
-                    <div>
-                        <h2><b>Crafted with ❤ in Melbourne</b></h2>
-                    </div>
+
                 </div>
                 <div class="col-md">
                     <div class="ftco-footer-widget mb-4 ml-md-5" style="margin-top:50px">
@@ -170,7 +196,6 @@
     </footer>
 
 
-
     <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee" /><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00" /></svg></div>
 
     <script src="~/Scripts/jquery.min.js"></script>
@@ -188,6 +213,36 @@
     <script src="~/Scripts/scrollax.min.js"></script>
     <script src="~/Scripts/google-map.js"></script>
     <script src="~/Scripts/main.js"></script>
+    <div class="scrollelement">
+        <img src="~/Content/scrolltotop_128.png" id="scrollTop"
+             title="Click to scroll to top at once" style="height: 70%; width: 50%" />
+    </div>
 
+    <script>
+        var scrollTop = document.getElementById("scrollTop");
+
+        window.onscroll = function () {
+            scrollfunction()
+        }
+
+            ;
+        function scrollfunction() {
+            if (document.body.scrollTop > 25 || document.documentElement.scrollTop > 25) {
+                scrollTop.style.display = "block";
+            }
+
+            else {
+                scrollTop.style.display = "none";
+            }
+
+        }
+
+        scrollTop.addEventListener("click", function () {
+            window.scrollTo({
+                left: 0,
+                top: 0,
+                behavior: "smooth"
+            })
+        })</script>
 </body>
 </html>

@@ -43,28 +43,33 @@ namespace RiskAssessment.Controllers
     [BasicAuthenticationAttribute("user", "C14fallrelief", BasicRealm = "myrealm")]
     public class HomeController : Controller
     {
+        //returning the helplines page from the view
         public ActionResult Helplines()
         {
             return View();
         }
+        //returning the about page from the view
         public ActionResult About()
         {
             return View();
         }
-       
+        //returning the home page from the view
         public ActionResult Index()
         {
             return View();
 
         }
+        //returning the healthtips from the view
         public ActionResult Tips()
         {
             return View();
         }
-
+        //returning the assessment from the view
         public ActionResult Assessment()
         {
+            //creating a variable for the database context class
             var _ctx = new fall_reliefEntities();
+            //retreiving the type of assessment
             ViewBag.Assessment = _ctx.tbl_RiskAss_Assessment.Where(x => x.IsActive == true).Select(x => new { x.AssessmentTypeID, x.AssessmentType }).ToList();
 
             SessionModel _model = null;
@@ -79,7 +84,7 @@ namespace RiskAssessment.Controllers
 
         }
 
-
+        
         public ActionResult Instruction(SessionModel model, int number)
         {
             if (model != null)
@@ -105,7 +110,7 @@ namespace RiskAssessment.Controllers
             return RedirectToAction("RiskAssessment", model= model2 );
             
         }
-
+        //generating a session for the assessment
         public ActionResult RiskAssessment(SessionModel model)
         {
             if (model != null)
@@ -135,7 +140,7 @@ namespace RiskAssessment.Controllers
             return RedirectToAction("QuestionAssessment", new { @SessionID = Session["SessionID"], @secNo = 1 });
         }
 
-
+       //returning the questionassessment view using the respective session id for each assessment
         public ActionResult QuestionAssessment(Guid SessionID, int? secNO)
         {
 
@@ -146,6 +151,8 @@ namespace RiskAssessment.Controllers
             }
 
             var _ctx = new fall_reliefEntities();
+            //initializing a variable to store the session id
+
 
             var asessment = _ctx.tbl_RiskAss_Session.Where(x => x.sessionID.Equals(SessionID)).FirstOrDefault();
 
@@ -153,15 +160,16 @@ namespace RiskAssessment.Controllers
             {
                 return RedirectToAction("Assessment");
             }
-
+            //section 1 being the default page of the assessment
             if (secNO.GetValueOrDefault() < 1)
                 secNO = 1;
-
+            //initializing a variable to store the assessment type id and the section number of the assessment
             var assSecQuestionID = _ctx.tbl_RiskAss_QuestionSection
                 .Where(x => x.AssessmentTypeID == asessment.AssessmentTypeID && x.SectionNo == secNO).FirstOrDefault();
 
             if (assSecQuestionID.SectionNo > 0)
             {
+                //initializing a variable to store the questions,responses when a new session id is generated each time
                 var _model = _ctx.tbl_RiskAss_QuestionSection.Where(x => x.SectionID == assSecQuestionID.SectionID)
                     .Select(x => new QuestionModel()
                     {
@@ -292,7 +300,7 @@ namespace RiskAssessment.Controllers
                 }
             };
 
-            //get the next question depending on the direction
+            //get the next or previous question depending on the direction
             var nextSectionNumber = 1;
 
             if (repsonses.Direction.Equals("forward", StringComparison.CurrentCultureIgnoreCase))
@@ -303,7 +311,7 @@ namespace RiskAssessment.Controllers
             }
             else
             {
-                if (repsonses.Direction.Equals("backwards", StringComparison.CurrentCultureIgnoreCase))
+                if (repsonses.Direction.Equals("backward", StringComparison.CurrentCultureIgnoreCase))
                 {
                     nextSectionNumber = _ctx.tbl_RiskAss_QuestionSection.Where(x => x.AssessmentTypeID == repsonses.AssessmentTypeID
                     && x.SectionID < repsonses.SectionID).OrderByDescending(x => x.SectionNo).Take(1).Select(x => x.SectionNo ?? default).FirstOrDefault();
@@ -327,7 +335,7 @@ namespace RiskAssessment.Controllers
 
         }
 
-
+        //returning the results of the assessment from the view
         public ActionResult AssessmentResult(Guid SessionID)
         {
 
@@ -352,19 +360,20 @@ namespace RiskAssessment.Controllers
                       }).ToList()
 
                   }).FirstOrDefault();
-            var numberel = _model.RiskList.Count;
+            
             ViewBag.AssessmentType = assessment.tbl_RiskAss_Assessment.AssessmentType;
             ViewBag.RiskScore = RiskLevelResult.RiskScore;
             ViewBag.RiskLevel = RiskLevelResult.RiskLevel;
             ViewBag.AssessmentNo = assessment.AssessmentNo;
-
-            if ((numberel == 0) && (_model.AssessmentTypeID == 1))
+            var numberel = _model.RiskList.Count;
+            var assessmentType = assessment.tbl_RiskAss_Assessment.AssessmentTypeID;
+            if ((numberel == 0) && (assessmentType == 1))
             {
                 return RedirectToAction("LowLevel");
 
             }
 
-                if ((numberel == 0) && (_model.AssessmentTypeID == 2))
+                if ((numberel == 0) && (assessmentType == 2))
                 {
                     return RedirectToAction("LowLevelHome");
                 }
@@ -377,16 +386,17 @@ namespace RiskAssessment.Controllers
         
 
         }
-
+        //returning the lowlevel page from the view
         public ActionResult LowLevel()
         {
             return View();
         }
+        //returning the lowlevel page from the view
         public ActionResult LowLevelHome()
         {
             return View();
         }
-
+        //returning the action plan from the view
         public ActionResult ActionPlan(Guid SessionID)
         {
 
