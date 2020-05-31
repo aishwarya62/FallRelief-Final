@@ -11765,13 +11765,14 @@ h1, h2, h3, h4, h5,
 .services .btn-custom {
     position: absolute;
     bottom: -35px;
-    color: white; left: 0;
+    background-color: #4473c4;
+    left: 0;
     right: 0;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin: 0 auto;
-    opacity: 0;
+    opacity: 0.5;
     -moz-transition: all 0.3s ease;
     -o-transition: all 0.3s ease;
     -webkit-transition: all 0.3s ease;
